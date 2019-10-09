@@ -1,3 +1,6 @@
+国庆的一个小项目
+
+
 1.npm安装spm报错:network If you are behind a proxy
 
 解决 npm config set registry http:*//registry.npmjs.org/*
