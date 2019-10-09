@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #efefef;
+}
+
+.content {
+    background: url("../img/bg_login.jpg") repeat-x;
+    min-width: 1000px;
+    height: 450px;
+}
+
+.box {
+    margin-top: -307px;
+}
+
+.box .logo {
+    width: 232px;
+    height: 100px;
+    margin: 0 auto;
+    background: url("../img/logo_login.png") no-repeat;
+}
+
+.box .form-out {
+    background-color: #fff;
+    width: 450px;
+    height: 350px;
+    margin: 0 auto;
+    padding: 20px 40px;
+    position: relative;
+}
+
+.control-label {
+    width: 18%!important;
+}
+
+.login {
+    margin-right: 40px;
+    background: #00B38B;
+    width: 102px;
+    height: 42px;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 2px;
+}
+
+.reset {
+    background: #999999;
+    width: 102px;
+    height: 42px;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 2px;
+}
+
+.form-group {
+    margin-top: 25px;
+    margin-bottom: 35px;
+}
+
+.forget {
+    position: absolute;
+    right: 15px;
+    bottom: 10px;
+}
+
+#inputEmail3,
+#inputPassword3 {
+    margin-left: 15px;
+}

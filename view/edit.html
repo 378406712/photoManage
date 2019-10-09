@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../assets/venders/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="icon" href="../assets/img/favicon.ico">
+    <link rel="stylesheet" href="../assets/css/publish.css">
+    <script src="../assets/js/jquery-3.4.1.js"></script>
+    <script src="../assets/js/publish.js"></script>
+    <title>网站后台管理-修改</title>
+</head>
+
+<body>
+    <div class="content">
+
+        <div class="control">
+            <div class="logo">
+                <a href=""><img src="../assets/img/logo.png" alt=""></a>
+            </div>
+            <ul class="control-list">
+
+                <li class="deep_grey"><a href="#" class="white">文章修改</a></li>
+                <!-- <li><a href="/user/photoMange">相册管理</a></li>
+            <li><a href="#">活动管理</a></li>
+            <li><a href="#">图片管理</a></li>
+            <li><a href="#">咨询管理</a></li>
+            <li><a href="#">模板管理</a></li>
+            <li><a href="#">系统设置</a></li> -->
+            </ul>
+
+
+
+        </div>
+        <div class="system">
+
+            <div class="system-tit clearFix">
+                <p class="h1-tit">网站后台管理系统</p>
+                <div class="user-login"><span>当前用户: <em class="consumer">Admin</em></span></div>
+            </div>
+
+            <div class="essay-publish clearFix">
+                <div class="publish-item">
+                    <div class="tits">文章修改</div>
+                    <div class="item-choose">
+                        <ul class="clearFix">
+                            <li><a href="#">新闻动态</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="publish-show">
+                <div class="publish" style="background: #ff6700;margin-bottom: 15px;"><a class="publish-click" href="#">修改文章</a></div>
+                <div class="hiden-container" style="display: block">
+                    <form action="/user/edit" method="POST" id="publish-item" enctype="multipart/form-data">
+                        <div class="caption">
+                            <table class="table-details">
+                                <tbody>
+
+                                    <tr>
+                                        <td class="td-left">标题</td>
+                                        <td><input type="text" name="title" autocomplete="off" value="<%=result.title%>"></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="td-left">描述</td>
+                                        <td><textarea class="textarea" name="desc" id="textarea" cols="30" rows="10"> <%=result.desc%></textarea></td>
+                                    </tr>
+
+                                    <tr>
+
+                                        <td class="td-left">上传图片</td>
+                                        <td style="position: relative" class="clearFix">
+                                            <a class="img-area">
+                                                <div class="progress">
+
+                                                    <img class="imgs" name="url" src="../upload/<%= result.url%>" alt="">
+                                                    <input type="hidden" name="" value="">
+                                                </div>
+                                            </a>
+
+
+                                            <a class="cover_btn" id="cover_btn">
+
+                                                <span id="symbol-plus">+</span>
+
+                                            </a>
+
+                                            <span class="tips">建议760*980px的图片。宽高不限</span>
+
+                        </div>
+                        <div class="files-item">
+                            <input type="file" class="file" name="file">
+
+                        </div>
+                        <!-- <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 01%">
+                                                    <span class="sr-only">45% Complete</span>
+                                                  </div> -->
+                        <input type="hidden" name="id" value="<%=result._id%>" />
+
+                        </td>
+                        </tr>
+
+
+                        </tbody>
+
+
+                        </table>
+
+                </div>
+
+                <div class="submit-area">
+                    <input type="submit" class="submit_btn" value="修改">
+                </div>
+
+                </form>
+
+
+
+
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+
+
+    </div>
+</body>
+
+</html>

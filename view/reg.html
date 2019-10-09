@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>注册</title>
+    <link rel="stylesheet" href="../assets/venders/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="icon" href="../assets/img/favicon.ico">
+    <link rel="stylesheet" href="../assets/css/reg.css">
+
+
+</head>
+
+<body>
+
+    <div class="content"></div>
+    <div class="box">
+        <div class="logo"></div>
+        <div class="form-out">
+            <form class="form-horizontal" action="./reg" method="POST">
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">   </label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="nickname" style="margin-left: 15px;" name="nickname" placeholder="昵称">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">   </label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="inputEmail3" name="username" placeholder="请输入手机号/用户名">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-2 control-label">  </label>
+                    <div class="col-sm-8">
+                        <input type="password" class="form-control" id="inputPassword3" name="password" placeholder="请输入密码">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" id="login" class="btn btn-default login">注 册</button>
+                        <button type="reset" id="reset" class="btn btn-default reset">重 置</button>
+                    </div>
+                </div>
+                <label>
+                                <a href="/user/login" class="nowlogin">立即登录</a>
+                              </label>
+            </form>
+        </div>
+
+    </div>
+    <script src="../assets/js/jquery-3.4.1.js"></script>
+    <script src="../assets/js/lzw.js"></script>
+    <script src="../assets/js/reg.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+.control-list li:nth-of-type(1) {
+    background-color: transparent!important;
+}
+
+.control-list li:nth-of-type(1) a {
+    color: #707783!important;
+}
+
+.control-list li:nth-of-type(1) a:hover {
+    color: #fff!important;
+}
+
+.control-list li:nth-of-type(1):hover {
+    background: #272a34!important;
+}
+
+.photos {
+    margin-top: 15px;
+}
+
+.photos ul {
+    margin-left: -21px!important;
+}
+
+.photos ul li {
+    float: left;
+    width: 308px;
+    background-color: #fff;
+    border: 1px solid #e4e3e6;
+    margin: 10px 0 10px 2%;
+    overflow: hidden!important;
+}
+
+.photos ul li .img {
+    position: relative;
+    margin: 11px 10px;
+    width: 100%;
+}
+
+.photos ul li .img a {
+    width: 286px;
+    height: 162px;
+    overflow: hidden;
+}
+
+.photos ul li .img a img {
+    width: 100%;
+    transition: transform 1s ease 0s;
+}
+
+.photos ul li .img a img:hover {
+    transform: scale(1.1)
+}
+
+.photos ul li .img-content {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding: 5px 10px;
+    width: 180px;
+    font-size: 16px;
+}
+
+.photos ul li .choose {
+    margin-top: 35px;
+    margin-bottom: 20px;
+}
+
+#delete,
+#update {
+    display: inline-block;
+    width: 117px;
+    height: 42px;
+    line-height: 42px;
+    text-align: center;
+    background-color: #fc7820;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 3px;
+    margin-left: 15px;
+    text-decoration: none;
+    transition: all 0.3s;
+    margin-top: 42px;
+}
+
+#delete {
+    background: #ebebeb;
+    color: #7c7c7c;
+    margin-left: 35px;
+}
+
+#delete:hover {
+    background-color: #ff6700;
+    color: #fff;
+}
+
+#update:hover {
+    background-color: #ff6700;
+}
+
+.cover-bgc {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+/* 歌词 */
+.aplayer .aplayer-lrc p {
+    color:#000!important;
+
+}

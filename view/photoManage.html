@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>网站后台管理-相册</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../assets/venders/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="icon" href="../assets/img/favicon.ico">
+    <link rel="stylesheet" href="../assets/css/publish.css">
+    <link rel="stylesheet" href="../assets/css/photoManage.css">
+    <link rel="stylesheet" href="../assets/css/popup.css">
+    <link rel="stylesheet" href="../assets/css/album.css">
+    <link rel="stylesheet" href="../assets/css/APlayer.min.css">
+    <script src="../assets/js/jquery-3.4.1.js"></script>
+    <script src="../assets/js/photoManage.js"></script>
+    <script src="../assets/js/lzw.js"></script>
+    <script src="../assets/js/click_show_text.js"></script>
+    <script type="text/javascript" src="../assets/js/FunnyTitle.js"></script>
+ 
+
+ 
+</head>
+
+<body style="background: url('../assets/img/sakura.png') no-repeat;">
+    <canvas id="cas" style="position : fixed;z-index : -1;"></canvas>
+    <div class="content">
+
+        <div class="control">
+            <div class="logo">
+                    <a href="">
+                            <img src="../assets/img/logo.png" alt="">
+                   
+                
+            </div>
+            <ul class="control-list">
+
+                <li><a href="/user/publish">文章发布</a></li>
+                <li class="deep_grey"><a class="white" href="/user/photoManage">相册管理</a></li>
+                <li><a href="#">活动管理</a></li>
+                <li><a href="#">图片管理</a></li>
+                <li><a href="#">咨询管理</a></li>
+                <li><a href="#">模板管理</a></li>
+                <li><a href="#">系统设置</a></li>
+            </ul>
+
+
+
+        </div>
+        <div class="system">
+
+            <div class="system-tit clearFix">
+                <p class="h1-tit">网站后台管理系统</p>
+                <div id="binft"></div>
+                <div class="user-login"><span>当前用户: <em class="consumer"><%=result.nickname%></em></span></div>
+            </div>
+
+            <div class="essay-publish clearFix">
+                <div class="publish-item">
+                    <div class="tits">相册管理</div>
+                    <div class="item-choose">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="publish-show">
+                <div class="publish"><a href="#" class="addPhoto">添加相册</a></div>
+                <div class="hiden-container">
+                    <form action="/user/photoManage" method="POST" id="publish-item" enctype="multipart/form-data">
+                        <div class="caption">
+                            <table class="table-details">
+                                <tbody>
+
+                                    <tr>
+                                        <td class="td-left">标题</td>
+                                        <td><input type="text" name="title" autocomplete="off"></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="td-left">描述</td>
+                                        <td><textarea class="textarea" name="desc" id="textarea" cols="30" rows="10"></textarea></td>
+                                    </tr>
+
+                                    <tr>
+
+                                        <td class="td-left">上传图片</td>
+                                        <td style="position: relative" class="clearFix">
+                                            <a class="img-area">
+                                                <div class="progress">
+
+                                                    <img class="imgs" src="../assets/img/cover.jpg" alt="">
+                                                    <input type="hidden" name="" value="">
+                                                </div>
+                                            </a>
+
+
+                                            <a class="cover_btn" id="cover_btn">
+
+                                                <span id="symbol-plus">+</span>
+
+                                            </a>
+
+                                            <span class="tips">建议760*980px的图片。宽高不限</span>
+
+
+                                            <div class="files-item">
+                                                <input type="file" class="file" name="file">
+                                            </div>
+
+                                        </td>
+                                    </tr>
+
+
+                                </tbody>
+
+
+                            </table>
+
+                        </div>
+
+                        <div class="submit-area">
+                            <input type="submit" class="submit_btn">
+                        </div>
+
+                    </form>
+
+
+
+
+                </div>
+                <div class="photos">
+
+                    <ul class="clearFix">
+
+                        <% for (i=0;i<result.length;i++){%>
+                            <li>
+                                <div class="team-members  team-row">
+
+
+                                    <div class="single-member effect-3">
+                                        <div class="member-image">
+                                            <img class="s-photo" src="../photo/<%= result[i].url%>">
+                                        </div>
+                                        <div class="member-info">
+                                            <h3 class="clap tit">
+                                                <%=result[i].title%>
+                                            </h3>
+                                            <h5 class="clap">&nbsp;</h5>
+                                            <p class=" p-photo  clap describe clap-3">
+                                                <%=result[i].desc%>
+                                            </p>
+
+                                            <a href="/user/photo-edit?id=<%= result[i]._id%>" id="update">修改</a>
+                                            <a href="/user/photo-del?id=<%= result[i]._id%>" id="delete">删除</a>
+
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <!--                         
+                                <div class="img">
+                                    <a href="#">
+                                <img  class ="s-photo" src="../photo/<%= result[i].url%>" alt="">
+                                
+                                    </a>
+                                </div>
+                                
+                                <p class="img-content"><%=result[i].title%></p>
+
+                                <div class="choose">
+                                    <a href="/user/photo-edit?id=<%= result[i]._id%>" id="update">修改</a>
+                                    <a href="/user/photo-del?id=<%= result[i]._id%>" id="delete">删除</a>
+                                </div> -->
+
+                            </li>
+
+
+                            <% }%>
+
+
+                    </ul>
+
+
+                </div>
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+    </div>
+   
+
+    <div class="cover-bgc">
+        <div id="innerdiv" style="position:absolute;"></div>
+    </div>
+
+    <!--aplayer固定播放器  -->
+    <div id="aplayer"></div>
+    <script src="../assets/js/APlayer.min.js"></script>
+    <script src="../assets/js/music.js"></script>
+    
+</body>
+<script>
+    var canvas = document.getElementById("cas");
+
+    var ctx = canvas.getContext("2d");
+
+
+
+
+    resize();
+
+    window.onresize = resize;
+
+
+
+
+    function resize() {
+
+        canvas.width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+
+        canvas.height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+
+    }
+
+
+
+
+    var RAF = (function() {
+
+        return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function(callback) {
+
+            window.setTimeout(callback, 1000 / 60);
+
+        };
+
+    })();
+
+
+
+
+    // 鼠标活动时，获取鼠标坐标
+
+    var warea = {
+        x: null,
+        y: null,
+        max: 20000
+    };
+
+    window.onmousemove = function(e) {
+
+        e = e || window.event;
+
+
+
+
+        warea.x = e.clientX;
+
+        warea.y = e.clientY;
+
+    };
+
+    window.onmouseout = function(e) {
+
+        warea.x = null;
+
+        warea.y = null;
+
+    };
+
+
+
+
+    // 添加粒子
+
+    // x，y为粒子坐标，xa, ya为粒子xy轴加速度，max为连线的最大距离
+
+    var dots = [];
+
+    for (var i = 0; i < 300; i++) {
+
+        var x = Math.random() * canvas.width;
+
+        var y = Math.random() * canvas.height;
+
+        var xa = Math.random() * 2 - 1;
+
+        var ya = Math.random() * 2 - 1;
+
+
+
+
+        dots.push({
+
+            x: x,
+
+            y: y,
+
+            xa: xa,
+
+            ya: ya,
+
+            max: 6000
+
+        })
+
+    }
+
+
+
+
+    // 延迟100秒开始执行动画，如果立即执行有时位置计算会出错
+
+    setTimeout(function() {
+
+        animate();
+
+    }, 100);
+
+
+
+
+    // 每一帧循环的逻辑
+
+    function animate() {
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+
+
+
+        // 将鼠标坐标添加进去，产生一个用于比对距离的点数组
+
+        var ndots = [warea].concat(dots);
+
+
+
+
+        dots.forEach(function(dot) {
+
+
+
+
+            // 粒子位移
+
+            dot.x += dot.xa;
+
+            dot.y += dot.ya;
+
+
+
+
+            // 遇到边界将加速度反向
+
+            dot.xa *= (dot.x > canvas.width || dot.x < 0) ? -1 : 1;
+
+            dot.ya *= (dot.y > canvas.height || dot.y < 0) ? -1 : 1;
+
+
+
+
+            // 绘制点
+
+            ctx.fillRect(dot.x - 0.5, dot.y - 0.5, 1, 1);
+
+
+
+
+            // 循环比对粒子间的距离
+
+            for (var i = 0; i < ndots.length; i++) {
+
+                var d2 = ndots[i];
+
+
+
+
+                if (dot === d2 || d2.x === null || d2.y === null) continue;
+
+
+
+
+                var xc = dot.x - d2.x;
+
+                var yc = dot.y - d2.y;
+
+
+
+
+                // 两个粒子之间的距离
+
+                var dis = xc * xc + yc * yc;
+
+
+
+
+                // 距离比
+
+                var ratio;
+
+
+
+
+                // 如果两个粒子之间的距离小于粒子对象的max值，则在两个粒子间画线
+
+                if (dis < d2.max) {
+
+
+
+
+                    // 如果是鼠标，则让粒子向鼠标的位置移动
+
+                    if (d2 === warea && dis > (d2.max / 2)) {
+
+                        dot.x -= xc * 0.03;
+
+                        dot.y -= yc * 0.03;
+
+                    }
+
+
+
+
+                    // 计算距离比
+
+                    ratio = (d2.max - dis) / d2.max;
+
+
+
+
+                    // 画线
+
+                    ctx.beginPath();
+
+                    ctx.lineWidth = ratio / 2;
+
+                    ctx.strokeStyle = 'rgba(0,0,0,' + (ratio + 0.2) + ')';
+
+                    ctx.moveTo(dot.x, dot.y);
+
+                    ctx.lineTo(d2.x, d2.y);
+
+                    ctx.stroke();
+
+                }
+
+            }
+
+
+
+
+            // 将已经计算过的粒子从数组中删除
+
+            ndots.splice(ndots.indexOf(dot), 1);
+
+        });
+
+
+
+
+        RAF(animate);
+
+    }
+</script>
+
+<script>
+lzw. binft(document.getElementById("binft"));</script>
+</html>

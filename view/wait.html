@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        span {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <span><%=wait%></span>
+    <span><%=content%></span>
+    <span><%=href%></span>
+</body>
+
+</html>
+
+<script>
+    var span = document.getElementsByTagName("span");
+    document.write(span[1].innerHTML);
+    setTimeout(function() {
+
+        location.href = span[2].innerHTML
+
+    }, parseInt(span[0].innerHTML * 1000))
+</script>
