@@ -1,4 +1,4 @@
-国庆的一个小项目
+国庆的一个小项目遇到的一些坑
 
 
 1.npm安装spm报错:network If you are behind a proxy
